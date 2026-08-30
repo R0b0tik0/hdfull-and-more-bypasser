@@ -4,6 +4,18 @@ Userscript que simplifica ver contenido en **HDFull** (`hdfull.love` y dominios 
 
 Automatiza todo el flujo salvo el paso que no puede evitarse a nivel de ficha: el captcha.
 
+## Instalación rápida
+
+> **Requisito previo:** instala antes un gestor de usuarioscripts — [Tampermonkey](https://www.tampermonkey.net/) (recomendado) o [Violentmonkey](https://violentmonkey.github.io/).
+
+[![Instalar](https://img.shields.io/badge/Instalar-HDFull_Bypasser-8758f5?style=for-the-badge&logo=tampermonkey)](https://github.com/R0b0tik0/hdfull-and-more-bypasser/raw/refs/heads/main/hdfull-bypasser.user.js)
+
+Pulsa el botón y Tampermonkey/Violentmonkey abrirá la página de instalación del userscript. Acepta y listo.
+
+<p align="center">
+  <img src="https://github.com/R0b0tik0/hdfull-and-more-bypasser/raw/refs/heads/main/Logo.png" alt="Logo" width="72">
+</p>
+
 ## Qué hace
 
 ### 1. HDFull: "Enlace externo" sin captcha intermedio
@@ -36,30 +48,33 @@ El menú tiene dos botones de respaldo:
 - **▶ Ver el contenido sin anuncios** — abre manualmente el stream limpio detectado.
 - **Cancelar** — cierra el menú y desactiva la automatización, dejando la web normal.
 
-## Instalación
+## Instalación manual
 
 1. **Instala un gestor de usuarioscripts** si no lo tienes:
    - [Tampermonkey](https://www.tampermonkey.net/) (Chrome, Firefox, Edge, Opera) — recomendado
    - [Violentmonkey](https://violentmonkey.github.io/) (Chrome, Firefox)
 
-2. **Haz clic derecho** en `hdfull-bypasser.user.js` dentro de la carpeta del proyecto y cópialo, **o** abre el archivo en el navegador (doble clic) y, si el gestor pregunta, acepta instalar.
+2. **Descarga el archivo del userscript** desde el repositorio:
 
-   Forma alternativa:
-   - Abre Tampermonkey → **pestaña Utilidades** (o "Dashboard" → icono de engranaje).
-   - Pulsa **"Elegir archivo"** en la sección *Importar*.
-   - Selecciona `hdfull-bypasser.user.js`.
-   - Confirma la instalación.
+   ```
+   https://github.com/R0b0tik0/hdfull-and-more-bypasser/raw/refs/heads/main/hdfull-bypasser.user.js
+   ```
 
-3. Asegúrate de que el userscript está **activado** en la lista del gestor.
+3. **Instálalo**, de cualquiera de estas formas:
+   - **Desde la URL**: en Tampermonkey → **Utilidades** → pega la URL del punto 2 en *"Instalar desde URL"* → **Instalar**.
+   - **Desde archivo**: en Tampermonkey → **Utilidades** → **"Elegir archivo"** en *Importar* → selecciona el `.user.js` descargado → Instalar.
+   - **Arrastrando el archivo** al navegador: si el gestor pregunta, acepta instalar.
 
-4. Recarga la página de HDFull/Powvideo. Verás el menú "¿Qué quieres hacer?" en Powvideo y los enlaces directos en HDFull.
+4. Asegúrate de que el userscript está **activado** en la lista del gestor.
+
+5. Recarga la página de HDFull/Powvideo. Verás el menú "¿Qué quieres hacer?" en Powvideo y los enlaces directos en HDFull.
 
 ### Origen del archivo y dominios cubiertos
 
-El archivo se instala desde la ruta del proyecto:
+El archivo se instala desde el repositorio:
 
 ```
-hdfull-bypasser.user.js
+https://github.com/R0b0tik0/hdfull-and-more-bypasser/blob/main/hdfull-bypasser.user.js
 ```
 
 Cubre los dominios:

@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         HDFull/Powvideo Bypasser
 // @namespace    hdfull-bypasser
-// @version      2.2.0
+// @version      2.2.1
 // @description  HDFull: "Enlace externo" va directo al enlace limpio sin captcha. Powvideo: menú "¿Qué quieres hacer?" con Ver sin anuncios / Cancelar, con aviso "Resuelve el captcha" mientras se detecta el stream.
 // @author       you
+// @icon         https://raw.githubusercontent.com/R0b0tik0/hdfull-and-more-bypasser/main/Logo.png
 // @match        *://hdfull.love/*
 // @match        *://hdfull.sbs/*
 // @match        *://hdfull.tv/*
@@ -21,6 +22,8 @@
 
 (function () {
   'use strict';
+
+  const BT_LOGO = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAiCAYAAAA3WXuFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO8SURBVFhH7ZTbaxRnGMafmZ09n7PnmDWxm02aC0MsHlBbPNBgoEUQlJYivRZ6I/hneNGFIrUXpRSEQEnvCm0RqTRKNJUaE6SGTTYm2XVNdM3umtnjzHxemHw73+x011zFi/3BwH7P+8zss+/O+3IuT4DgPYLXCrtNJ1A7OoHa0QnUDq7VHvLZYxiKfAaOa+Ref/0E88//YHw2YxeGoxdgNFjfCgQAx1gYCFFQkYpYKzxGJj8DhdRprWWgY7FvcGLgCg2kEAm356/iXuoHxjcYGsPZkW93FqhexFrxMR6lf8F/2d+gEBlo9ZeZBRdiwVNMd8RqDovrtxkfzxkRD42+cxgA4DgeVpMHff7jOPrBJXhtvbT2v4Ei7v0IOgYZLZN/iI3SMqN5bFHs7TrEaDvB74wj2nWYnnUD8ZyAgfAZmAQH1SS5iuT6TUhKhfH2+Y/BZYk0BFV3CCFIrt/CZDKBuwvf4Un2d0hytWHY+i63radxZqpbOCxh7PN9DI5rPL1QzmA5d5/xmQx2xIOfgueNjL5NpV7A9NKPmEwm6JUTF7U2VOoF+lk3UK/vCNzWPYwmGMw4EP0Sn8QvM1e3Z4TxqXmxOY9sYQ4AoBAZOXERYvUl45GUGnKbKXpumjKBt+DsSAIfhsfUckv03mO9ibSbgvjqyA0EnANUy5dWMT59kb6bTR3y2nqxx3NAK7dHszz0JjLkGoLL2s1o6fwDFCtZem4KFAuehN3s08ot0XYHOhNp4E0YDJ+ByWCnWk0SMZ/9E7JSoxoTyCQ40R88DZ4TqCZWX+Le4nXmxby7cA3F8rO3hu3OqFLpTWSf7zj6g6eZQXlWeISVV9P0DG2giHs/Ak27ZwZ/q8JMJhOYy/wKhUiMT81GaQXLuSkAgFlwYjA8hqOxS3CYQ9RTruUxszKOcv2V6k5VIJ7jMRAahcXopkW9Xwrt7tH5vwSDGSOaiYx6D9HuSHIVs5kJLLz4S3trY8pc1m58cfBnBJxxWsxtpjD+z9coltNUMxnsOPfRNcQCJ6m2E+pyBXPpCUylrqOgeu42tEM93oPw2vbSAiEES7k72Kw8pxq2Vn3EPcxo7wIhBPnSKh48/QlTqe91w2A7kMBbEA+OQjCYaaEmi1hYu9X0rsQCp2A1erRTrotCZJRrG8gWZvHvyg1MJhNbnclorRTO5QkQgbdguOc87GY/LdQkEbPpCZTrG8wNQ5HP4Xf06y5DLQqRUZWKyJdWkc3PQqyxW1qPpk292zQtxt2mE6gdnUDt6ARqx3sX6A0vwntZjUXupAAAAABJRU5ErkJggg==';
 
   const HOST = location.hostname.toLowerCase();
   const IS_HDFULL = /(^|\.)hdfull\./.test(HOST);
@@ -171,11 +174,12 @@
       box-shadow: 0 24px 70px rgba(0, 0, 0, .5);
       overflow: hidden;
     }
-    .hdb-header { display: flex; gap: 12px; padding: 20px 20px 16px; border-bottom: 1px solid var(--hdb-border); }
-    .hdb-brand {
-      width: 42px; height: 28px; flex: none; display: flex; align-items: center; justify-content: center;
-      font: 900 italic 22px/1 Arial, sans-serif; letter-spacing: -5px; transform: skew(-7deg);
-      color: var(--hdb-brand); user-select: none;
+    .hdb-header { display: flex; align-items: center; gap: 12px; padding: 20px 20px 16px; border-bottom: 1px solid var(--hdb-border); }
+    .hdb-logo {
+      width: 36px; height: 34px; flex: none;
+      display: block; object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(135, 88, 245, .35));
+      user-select: none;
     }
     .hdb-heading { min-width: 0; flex: 1; }
     .hdb-eyebrow { margin: 0 0 2px; color: var(--hdb-brand); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
@@ -361,15 +365,16 @@
       const panel = el('div', { class: 'hdb-panel' });
       root.appendChild(panel);
 
-      // Cabecera
+      // Cabecera con logo
+      const logo = el('img', { class: 'hdb-logo', src: BT_LOGO, alt: 'HDFull Bypass' });
       const header = el('div', { class: 'hdb-header' }, [
-        el('div', { class: 'hdb-brand' }, [document.createTextNode('HD')]),
+        logo,
         el('div', { class: 'hdb-heading' }, [
           el('p', { class: 'hdb-eyebrow' }, [document.createTextNode('HDFull Bypass')]),
           el('h1', { class: 'hdb-title' }, [document.createTextNode('¿Qué quieres hacer?')]),
           el('p', { class: 'hdb-subtitle' }, [document.createTextNode(path)]),
         ]),
-        el('span', { class: 'hdb-build' }, [document.createTextNode('DB 2.2.0')]),
+        el('span', { class: 'hdb-build' }, [document.createTextNode('DB 2.2.1')]),
       ]);
       panel.appendChild(header);
 
