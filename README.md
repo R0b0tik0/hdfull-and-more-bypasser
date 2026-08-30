@@ -6,7 +6,7 @@ Automatiza todo el flujo salvo el paso que no puede evitarse a nivel de ficha: e
 
 ## Instalación rápida
 
-> **Requisito previo:** instala antes un gestor de usuarioscripts — [Tampermonkey](https://www.tampermonkey.net/) (recomendado) o [Violentmonkey](https://violentmonkey.github.io/).
+> **Requisito previo:** instala antes un gestor de userscripts — [Tampermonkey](https://www.tampermonkey.net/) (recomendado) o [Violentmonkey](https://violentmonkey.github.io/).
 
 [![Instalar](https://img.shields.io/badge/Instalar-HDFull_Bypasser-8758f5?style=for-the-badge&logo=tampermonkey)](https://github.com/R0b0tik0/hdfull-and-more-bypasser/raw/refs/heads/main/hdfull-bypasser.user.js)
 
