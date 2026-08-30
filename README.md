@@ -12,9 +12,6 @@ Automatiza todo el flujo salvo el paso que no puede evitarse a nivel de ficha: e
 
 Pulsa el botón y Tampermonkey/Violentmonkey abrirá la página de instalación del userscript. Acepta y listo.
 
-<p align="center">
-  <img src="https://github.com/R0b0tik0/hdfull-and-more-bypasser/raw/refs/heads/main/Logo.png" alt="Logo" width="72">
-</p>
 
 ## Qué hace
 
