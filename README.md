@@ -10,10 +10,6 @@ Userscript que simplifica ver contenido en **HDFull** (`hdfull.love` y dominios 
 
 Pulsa el botón y tu gestor abrirá la página de instalación del userscript. Acepta y listo.
 
-<p align="center">
-  <img src="https://github.com/R0b0tik0/hdfull-and-more-bypasser/raw/refs/heads/main/Logo.png" alt="Logo" width="72">
-</p>
-
 ## Qué hace
 
 **1. HDFull: "Enlace externo" sin captcha intermedio**
